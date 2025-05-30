@@ -3,11 +3,6 @@ const displaybox = document.querySelector(".displaybox");
 const buttonsbox = document.querySelector(".buttonsbox");
 const buttonsboxleft = document.querySelector(".buttonsboxleft");
 const buttonsboxright = document.querySelector(".buttonsboxright");
-container.append();
-displaybox.append();
-buttonsbox.append();
-buttonsboxleft.append();
-buttonsboxright.append();
 
 let displayContent = "";
 let number1 = "";
@@ -399,3 +394,11 @@ function operate(number1, operator, number2) {
             divide(completedNumber, parseInt(number2));
     }
 }
+
+// To-Do List
+// decimal functionality and rounding
+// reworking so inputs like '5 - 1 +' work, with the second + operator being used for the next equation
+    // Personally I don't see a reason for this but the assignment instructs for it to be able to do so
+// html and css touch-up
+// backspace button functionality
+// if feeling ambitious: unlimit calculations to pairings of numbers, and evaluate entire equations at once.
