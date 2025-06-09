@@ -215,13 +215,13 @@ button = document.createElement("button");
 button.textContent = "0";
 button.classList.add("button-0", "buttons");
 button.addEventListener("click", () => {
-    if (number1 === "")
+    if (operator === "")
     {
         number1 = number1 + "0";
         display.textContent = number1;
         displaybox.append(display);
     }
-    else if (number2 === "" && operator !== "")
+    else if (number1 !== "" && operator !== "")
     {
         number2 = number2 + "0";
         display.textContent = number2;
@@ -281,20 +281,40 @@ button.addEventListener("click", () => {
 })
 buttonsboxright.append(button);
 
+// 'Backspace' functionality
+button = document.createElement("button");
+button.textContent = "Back";
+button.classList.add("buttons", "button1-9");
+button.addEventListener("click", () => {
+    if (operator === "")
+    {
+        number1 = number1.slice(0,number1.length-1);
+        display.textContent = number1;
+        displaybox.append(display);
+    }
+    else if (number1 !== "" && operator !== "")
+    {
+        number2 = number2.slice(0,number2.length-1);
+        display.textContent = number2;
+        displaybox.append(display);
+    }
+})
+buttonsboxright.append(button);
+
 // add backspace button, use slice(-1)
 
 function add(a,b) {
     if (completedNumber !== "")
     {
         completedNumber = b + completedNumber;
-        display.textContent = completedNumber;
+        display.textContent = parseFloat(completedNumber.toFixed(1));;
         displaybox.append(display);
     }
 
     else 
     {
         completedNumber = a + b;
-        display.textContent = completedNumber;
+        display.textContent = parseFloat(completedNumber.toFixed(1));;
         displaybox.append(display);
     }
     
@@ -307,14 +327,14 @@ function subtract(a,b) {
     if (completedNumber !== "")
     {
         completedNumber = b - completedNumber;
-        display.textContent = completedNumber;
+        display.textContent = parseFloat(completedNumber.toFixed(1));;
         displaybox.append(display);
     }
 
     else 
     {
         completedNumber = a - b;
-        display.textContent = completedNumber;
+        display.textContent = parseFloat(completedNumber.toFixed(1));;
         displaybox.append(display);
     }
     
@@ -327,14 +347,14 @@ function multiply(a,b) {
     if (completedNumber !== "")
     {
         completedNumber = b * completedNumber;
-        display.textContent = completedNumber;
+        display.textContent = parseFloat(completedNumber.toFixed(1));;
         displaybox.append(display);
     }
 
     else 
     {
         completedNumber = a * b;
-        display.textContent = completedNumber;
+        display.textContent = parseFloat(completedNumber.toFixed(1));;
         displaybox.append(display);
     }
     
@@ -347,14 +367,14 @@ function divide(a,b) {
     if (completedNumber !== "")
     {
         completedNumber = b / completedNumber;
-        display.textContent = completedNumber;
+        display.textContent = parseFloat(completedNumber.toFixed(1));
         displaybox.append(display);
     }
 
     else 
     {
         completedNumber = a / b;
-        display.textContent = completedNumber;
+        display.textContent = parseFloat(completedNumber.toFixed(1));
         displaybox.append(display);
     }
     
@@ -396,9 +416,9 @@ function operate(number1, operator, number2) {
 }
 
 // To-Do List
-// decimal functionality and rounding
 // reworking so inputs like '5 - 1 +' work, with the second + operator being used for the next equation
     // Personally I don't see a reason for this but the assignment instructs for it to be able to do so
 // html and css touch-up
-// backspace button functionality
 // if feeling ambitious: unlimit calculations to pairings of numbers, and evaluate entire equations at once.
+
+// use displayContent as an equation and use it when operating to free up variables
