@@ -234,6 +234,20 @@ buttonsboxleft.append(button);
 button = document.createElement("button");
 button.textContent = ".";
 button.classList.add("buttons", "button1-9");
+button.addEventListener("click", () => {
+    if (number1.includes(".") === false && operator === "")  
+    {
+        number1 = number1 + ".";
+        display.textContent = number1;
+        displaybox.append(display);
+    }
+    else if (number2.includes(".") === false && number1 !== "" && operator !== "")
+    {
+        number2 = number2 + ".";
+        display.textContent = number2;
+        displaybox.append(display);
+    }
+})
 buttonsboxleft.append(button);
 
 // '+' functionality
@@ -300,8 +314,6 @@ button.addEventListener("click", () => {
     }
 })
 buttonsboxright.append(button);
-
-// add backspace button, use slice(-1)
 
 function add(a,b) {
     if (completedNumber !== "")
