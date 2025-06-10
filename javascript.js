@@ -121,7 +121,7 @@ button.addEventListener("click", () => {
         display.textContent = number1;
         displaybox.append(display);
     }
-    else if (number1 !== "" && operator !== "")
+    else if (operator !== "")
     {
         number2 = number2 + "5";
         display.textContent = number2;
@@ -141,7 +141,7 @@ button.addEventListener("click", () => {
         display.textContent = number1;
         displaybox.append(display);
     }
-    else if (number1 !== "" && operator !== "")
+    else if (operator !== "")
     {
         number2 = number2 + "6";
         display.textContent = number2;
@@ -161,7 +161,7 @@ button.addEventListener("click", () => {
         display.textContent = number1;
         displaybox.append(display);
     }
-    else if (number1 !== "" && operator !== "")
+    else if (operator !== "")
     {
         number2 = number2 + "7";
         display.textContent = number2;
@@ -181,7 +181,7 @@ button.addEventListener("click", () => {
         display.textContent = number1;
         displaybox.append(display);
     }
-    else if (number1 !== "" && operator !== "")
+    else if (operator !== "")
     {
         number2 = number2 + "8";
         display.textContent = number2;
@@ -201,7 +201,7 @@ button.addEventListener("click", () => {
         display.textContent = number1;
         displaybox.append(display);
     }
-    else if (number1 !== "" && operator !== "")
+    else if (operator !== "")
     {
         number2 = number2 + "9";
         display.textContent = number2;
@@ -221,7 +221,7 @@ button.addEventListener("click", () => {
         display.textContent = number1;
         displaybox.append(display);
     }
-    else if (number1 !== "" && operator !== "")
+    else if (operator !== "")
     {
         number2 = number2 + "0";
         display.textContent = number2;
@@ -255,7 +255,16 @@ button = document.createElement("button");
 button.textContent = "+";
 button.classList.add("buttonOperators", "buttons");
 button.addEventListener("click", () => {
-    operator = "add";
+    if (operator === "") 
+    {
+        operator = "add";
+    }
+    else if ((number1 !== "" || completedNumber !== "") && operator !== "" && number2 !== "")
+    {
+        operate(number1, operator, number2);
+        operator = "add";
+    }
+    
 })
 buttonsboxright.append(button);
 
@@ -264,7 +273,15 @@ button = document.createElement("button");
 button.textContent = "-";
 button.classList.add("buttonOperators", "buttons");
 button.addEventListener("click", () => {
-    operator = "subtract";
+    if (operator === "") 
+    {
+        operator = "subtract";
+    }
+    else if ((number1 !== "" || completedNumber !== "") && operator !== "" && number2 !== "")
+    {
+        operate(number1, operator, number2);
+        operator = "subtract";
+    }
 })
 buttonsboxright.append(button);
 
@@ -273,7 +290,15 @@ button = document.createElement("button");
 button.textContent = "*";
 button.classList.add("buttonOperators", "buttons");
 button.addEventListener("click", () => {
-    operator = "multiply";
+    if (operator === "") 
+    {
+        operator = "multiply";
+    }
+    else if ((number1 !== "" || completedNumber !== "") && operator !== "" && number2 !== "")
+    {
+        operate(number1, operator, number2);
+        operator = "multiply";
+    }
 })
 buttonsboxright.append(button);
 
@@ -282,7 +307,15 @@ button = document.createElement("button");
 button.textContent = "/";
 button.classList.add("buttonOperators", "buttons");
 button.addEventListener("click", () => {
-    operator = "divide";
+    if (operator === "") 
+    {
+        operator = "divide";
+    }
+    else if ((number1 !== "" || completedNumber !== "") && operator !== "" && number2 !== "")
+    {
+        operate(number1, operator, number2);
+        operator = "divide";
+    }
 })
 buttonsboxright.append(button);
 
@@ -318,7 +351,7 @@ buttonsboxright.append(button);
 function add(a,b) {
     if (completedNumber !== "")
     {
-        completedNumber = b + completedNumber;
+        completedNumber = completedNumber + b;
         display.textContent = parseFloat(completedNumber.toFixed(1));;
         displaybox.append(display);
     }
@@ -338,7 +371,7 @@ function add(a,b) {
 function subtract(a,b) {
     if (completedNumber !== "")
     {
-        completedNumber = b - completedNumber;
+        completedNumber = completedNumber - b;
         display.textContent = parseFloat(completedNumber.toFixed(1));;
         displaybox.append(display);
     }
@@ -358,7 +391,7 @@ function subtract(a,b) {
 function multiply(a,b) {
     if (completedNumber !== "")
     {
-        completedNumber = b * completedNumber;
+        completedNumber = completedNumber * b;
         display.textContent = parseFloat(completedNumber.toFixed(1));;
         displaybox.append(display);
     }
@@ -378,7 +411,7 @@ function multiply(a,b) {
 function divide(a,b) {
     if (completedNumber !== "")
     {
-        completedNumber = b / completedNumber;
+        completedNumber = completedNumber / b;
         display.textContent = parseFloat(completedNumber.toFixed(1));
         displaybox.append(display);
     }
@@ -430,6 +463,7 @@ function operate(number1, operator, number2) {
 // To-Do List
 // reworking so inputs like '5 - 1 +' work, with the second + operator being used for the next equation
     // Personally I don't see a reason for this but the assignment instructs for it to be able to do so
+    // Should be simple, just operate after hitting the second operator in an equation, then update the operator afterwards
 // html and css touch-up
 // if feeling ambitious: unlimit calculations to pairings of numbers, and evaluate entire equations at once.
 
