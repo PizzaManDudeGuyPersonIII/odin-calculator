@@ -94,7 +94,7 @@ function softReset()
 
 // 'Clear' functionality
 let button = document.createElement("button");
-button.textContent = "Clear";
+button.textContent = "(C)lear";
 button.classList.add("buttonClear", "buttons");
 button.addEventListener("click", () => {
     inputClear();
