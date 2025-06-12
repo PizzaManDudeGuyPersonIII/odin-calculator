@@ -15,246 +15,365 @@ display.classList.add("display");
 display.textContent = "display";
 displaybox.append(display);
 
+// Keyboard support
+document.addEventListener("keypress", (event) => {
+
+if (event.key === "c")
+    inputClear();
+
+else if (event.key === "1")
+    inputOne();
+
+else if (event.key === "2")
+    inputTwo();
+
+else if (event.key === "3")
+    inputThree();
+
+else if (event.key === "4")
+    inputFour();
+
+else if (event.key === "5")
+    inputFive();
+
+else if (event.key === "6")
+    inputSix();
+
+else if (event.key === "7")
+    inputSeven();
+
+else if (event.key === "8")
+    inputEight();
+
+else if (event.key === "9")
+    inputNine();
+
+else if (event.key === "0")
+    inputZero();
+
+else if (event.key === ".")
+    inputDecimal();
+
+else if (event.key === "+")
+    inputAdd();
+
+else if (event.key === "-")
+    inputSub();
+
+else if (event.key === "*")
+    inputMult();
+
+else if (event.key === "/")
+    inputDivide();
+
+else if (event.key === "=")
+    operate(number1, operator, number2);
+
+else if (event.key === "Backspace")
+    inputBackspace();
+});
+
+function updateNumber1()
+{
+    display.textContent = number1;
+    displaybox.append(display);
+}
+
+function updateNumber2()
+{
+    display.textContent = number2;
+    displaybox.append(display);
+}
+
+function softReset()
+{
+    number1 = "";
+    number2 = "";
+    operator = "";
+}
+
 // 'Clear' functionality
 let button = document.createElement("button");
 button.textContent = "Clear";
 button.classList.add("buttonClear", "buttons");
 button.addEventListener("click", () => {
-    number1 = "";
-    number2 = "";
-    operator = "";
+    inputClear();
+})
+buttonsboxleft.append(button);
+
+function inputClear()
+{
+    softReset();
     displayContent = "";
     completedNumber = "";
     display.textContent = " ";
     displaybox.append(display);
-})
-buttonsboxleft.append(button);
+}
 
 // '1' functionality
 button = document.createElement("button");
 button.textContent = "1";
 button.classList.add("button1-9", "buttons");
-button.addEventListener("click", () => {
+button.addEventListener("click", function() {
+    inputOne();
+})
+buttonsboxleft.append(button);
+
+function inputOne()
+{
     if (operator === "")
     {
         number1 = number1 + "1";
-        display.textContent = number1;
-        displaybox.append(display);
+        updateNumber1();
     }
     else if (operator !== "")
     {
         number2 = number2 + "1";
-        display.textContent = number2;
-        displaybox.append(display);
+        updateNumber2();
     }
-})
-buttonsboxleft.append(button);
+}
 
 // '2' functionality
 button = document.createElement("button");
 button.textContent = "2";
 button.classList.add("button1-9", "buttons");
 button.addEventListener("click", () => {
+    inputTwo();
+})
+buttonsboxleft.append(button);
+
+function inputTwo()
+{
     if (operator === "")
     {
         number1 = number1 + "2";
-        display.textContent = number1;
-        displaybox.append(display);
+        updateNumber1();
     }
     else if (operator !== "")
     {
         number2 = number2 + "2";
-        display.textContent = number2;
-        displaybox.append(display);
+        updateNumber2();
     }
-})
-buttonsboxleft.append(button);
+}
 
 // '3' functionality
 button = document.createElement("button");
 button.textContent = "3";
 button.classList.add("button1-9", "buttons");
 button.addEventListener("click", () => {
+    inputThree();
+})
+buttonsboxleft.append(button);
+
+function inputThree()
+{
     if (operator === "")
     {
         number1 = number1 + "3";
-        display.textContent = number1;
-        displaybox.append(display);
+        updateNumber1();
     }
     else if (operator !== "")
     {
         number2 = number2 + "3";
-        display.textContent = number2;
-        displaybox.append(display);
+        updateNumber2();
     }
-})
-buttonsboxleft.append(button);
+}
 
 // '4' functionality
 button = document.createElement("button");
 button.textContent = "4";
 button.classList.add("button1-9", "buttons");
 button.addEventListener("click", () => {
+    inputFour();
+})
+buttonsboxleft.append(button);
+
+function inputFour()
+{
     if (operator === "")
     {
         number1 = number1 + "4";
-        display.textContent = number1;
-        displaybox.append(display);
+        updateNumber1();
     }
     else if (operator !== "")
     {
         number2 = number2 + "4";
-        display.textContent = number2;
-        displaybox.append(display);
+        updateNumber2();
     }
-})
-buttonsboxleft.append(button);
+}
 
 // '5' functionality
 button = document.createElement("button");
 button.textContent = "5";
 button.classList.add("button1-9", "buttons");
 button.addEventListener("click", () => {
+    inputFive();
+})
+buttonsboxleft.append(button);
+
+function inputFive()
+{
     if (operator === "")
     {
         number1 = number1 + "5";
-        display.textContent = number1;
-        displaybox.append(display);
+        updateNumber1();
     }
     else if (operator !== "")
     {
         number2 = number2 + "5";
-        display.textContent = number2;
-        displaybox.append(display);
+        updateNumber2();
     }
-})
-buttonsboxleft.append(button);
+}
 
 // '6' functionality
 button = document.createElement("button");
 button.textContent = "6";
 button.classList.add("button1-9", "buttons");
 button.addEventListener("click", () => {
+    inputSix();
+})
+buttonsboxleft.append(button);
+
+function inputSix()
+{
     if (operator === "")
     {
         number1 = number1 + "6";
-        display.textContent = number1;
-        displaybox.append(display);
+        updateNumber1();
     }
     else if (operator !== "")
     {
         number2 = number2 + "6";
-        display.textContent = number2;
-        displaybox.append(display);
+        updateNumber2();
     }
-})
-buttonsboxleft.append(button);
+}
 
 // '7' functionality
 button = document.createElement("button");
 button.textContent = "7";
 button.classList.add("button1-9", "buttons");
 button.addEventListener("click", () => {
+    inputSeven();
+})
+buttonsboxleft.append(button);
+
+function inputSeven()
+{
     if (operator === "")
     {
         number1 = number1 + "7";
-        display.textContent = number1;
-        displaybox.append(display);
+        updateNumber1();
     }
     else if (operator !== "")
     {
         number2 = number2 + "7";
-        display.textContent = number2;
-        displaybox.append(display);
+        updateNumber2();
     }
-})
-buttonsboxleft.append(button);
+}
 
 // '8' functionality
 button = document.createElement("button");
 button.textContent = "8";
 button.classList.add("button1-9", "buttons");
 button.addEventListener("click", () => {
+    inputEight();
+})
+buttonsboxleft.append(button);
+
+function inputEight()
+{
     if (operator === "")
     {
         number1 = number1 + "8";
-        display.textContent = number1;
-        displaybox.append(display);
+        updateNumber1();
     }
     else if (operator !== "")
     {
         number2 = number2 + "8";
-        display.textContent = number2;
-        displaybox.append(display);
+        updateNumber2();
     }
-})
-buttonsboxleft.append(button);
+}
 
 // '9' functionality
 button = document.createElement("button");
 button.textContent = "9";
 button.classList.add("button1-9", "buttons");
 button.addEventListener("click", () => {
+    inputNine();
+})
+buttonsboxleft.append(button);
+
+function inputNine()
+{
     if (operator === "")
     {
         number1 = number1 + "9";
-        display.textContent = number1;
-        displaybox.append(display);
+        updateNumber1();
     }
     else if (operator !== "")
     {
         number2 = number2 + "9";
-        display.textContent = number2;
-        displaybox.append(display);
+        updateNumber2();
     }
-})
-buttonsboxleft.append(button);
+}
 
 // '0' functionality
 button = document.createElement("button");
 button.textContent = "0";
 button.classList.add("button-0", "buttons");
 button.addEventListener("click", () => {
+    inputZero();
+})
+buttonsboxleft.append(button);
+
+function inputZero()
+{
     if (operator === "")
     {
         number1 = number1 + "0";
-        display.textContent = number1;
-        displaybox.append(display);
+        updateNumber1();
     }
     else if (operator !== "")
     {
         number2 = number2 + "0";
-        display.textContent = number2;
-        displaybox.append(display);
+        updateNumber2();
     }
-})
-buttonsboxleft.append(button);
+}
 
 // '.' functionality
 button = document.createElement("button");
 button.textContent = ".";
 button.classList.add("buttons", "button1-9");
 button.addEventListener("click", () => {
+    inputDecimal();
+})
+buttonsboxleft.append(button);
+
+function inputDecimal()
+{
     if (number1.includes(".") === false && operator === "")  
     {
         number1 = number1 + ".";
-        display.textContent = number1;
-        displaybox.append(display);
+        updateNumber1();
     }
     else if (number2.includes(".") === false && number1 !== "" && operator !== "")
     {
         number2 = number2 + ".";
-        display.textContent = number2;
-        displaybox.append(display);
+        updateNumber2();
     }
-})
-buttonsboxleft.append(button);
+}
 
 // '+' functionality
 button = document.createElement("button");
 button.textContent = "+";
 button.classList.add("buttonOperators", "buttons");
 button.addEventListener("click", () => {
+    inputAdd();
+})
+buttonsboxright.append(button);
+
+function inputAdd()
+{
     if (operator === "") 
     {
         operator = "add";
@@ -264,15 +383,19 @@ button.addEventListener("click", () => {
         operate(number1, operator, number2);
         operator = "add";
     }
-    
-})
-buttonsboxright.append(button);
+}
 
 // '-' functionality
 button = document.createElement("button");
 button.textContent = "-";
 button.classList.add("buttonOperators", "buttons");
 button.addEventListener("click", () => {
+    inputSub();
+})
+buttonsboxright.append(button);
+
+function inputSub() 
+{
     if (operator === "") 
     {
         operator = "subtract";
@@ -282,14 +405,19 @@ button.addEventListener("click", () => {
         operate(number1, operator, number2);
         operator = "subtract";
     }
-})
-buttonsboxright.append(button);
+}
 
 // '*' functionality
 button = document.createElement("button");
 button.textContent = "*";
 button.classList.add("buttonOperators", "buttons");
 button.addEventListener("click", () => {
+    inputMult();
+})
+buttonsboxright.append(button);
+
+function inputMult()
+{
     if (operator === "") 
     {
         operator = "multiply";
@@ -299,14 +427,19 @@ button.addEventListener("click", () => {
         operate(number1, operator, number2);
         operator = "multiply";
     }
-})
-buttonsboxright.append(button);
+}
 
 // '/' functionality
 button = document.createElement("button");
 button.textContent = "/";
 button.classList.add("buttonOperators", "buttons");
 button.addEventListener("click", () => {
+    inputDivide();
+})
+buttonsboxright.append(button);
+
+function inputDivide()
+{
     if (operator === "") 
     {
         operator = "divide";
@@ -316,8 +449,7 @@ button.addEventListener("click", () => {
         operate(number1, operator, number2);
         operator = "divide";
     }
-})
-buttonsboxright.append(button);
+}
 
 // '=' functionality
 button = document.createElement("button");
@@ -336,14 +468,12 @@ button.addEventListener("click", () => {
     if (operator === "")
     {
         number1 = number1.slice(0,number1.length-1);
-        display.textContent = number1;
-        displaybox.append(display);
+        updateNumber1();
     }
     else if (number1 !== "" && operator !== "")
     {
         number2 = number2.slice(0,number2.length-1);
-        display.textContent = number2;
-        displaybox.append(display);
+        updateNumber2();
     }
 })
 buttonsboxright.append(button);
@@ -363,9 +493,7 @@ function add(a,b) {
         displaybox.append(display);
     }
     
-    number1 = "";
-    number2 = "";
-    operator = "";
+    softReset();
 }
 
 function subtract(a,b) {
@@ -383,9 +511,7 @@ function subtract(a,b) {
         displaybox.append(display);
     }
     
-    number1 = "";
-    number2 = "";
-    operator = "";
+    softReset();
 }
 
 function multiply(a,b) {
@@ -403,9 +529,7 @@ function multiply(a,b) {
         displaybox.append(display);
     }
     
-    number1 = "";
-    number2 = "";
-    operator = "";
+    softReset();
 }
 
 function divide(a,b) {
@@ -423,9 +547,7 @@ function divide(a,b) {
         displaybox.append(display);
     }
     
-    number1 = "";
-    number2 = "";
-    operator = "";
+    softReset();
 }
 
 function operate(number1, operator, number2) {
@@ -461,10 +583,5 @@ function operate(number1, operator, number2) {
 }
 
 // To-Do List
-// reworking so inputs like '5 - 1 +' work, with the second + operator being used for the next equation
-    // Personally I don't see a reason for this but the assignment instructs for it to be able to do so
-    // Should be simple, just operate after hitting the second operator in an equation, then update the operator afterwards
 // html and css touch-up
 // if feeling ambitious: unlimit calculations to pairings of numbers, and evaluate entire equations at once.
-
-// use displayContent as an equation and use it when operating to free up variables
